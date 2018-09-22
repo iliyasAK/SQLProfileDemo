@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imgProf"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary"
+        android:src="@drawable/ic_add_photo"
+        />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layName"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/imgProf"
+        android:layout_marginTop="10dp"
+        android:hint="Name"
+        >
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edtName"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layAge"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/layName"
+        android:layout_marginTop="10dp"
+        android:hint="Age"
+        >
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/edtAge"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/layPhone"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/layAge"
+        android:layout_marginTop="10dp"
+        android:hint="Phone"
+        >
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/edtPhone"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnAddRec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/layPhone"
+        android:minWidth="160dp"
+        android:text="Save Record"
+        android:layout_marginTop="10dp"
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        />
+    <Button
+        android:id="@+id/btnUpdateRec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnAddRec"
+        android:minWidth="160dp"
+        android:text="Update Record"
+        android:layout_marginTop="10dp"
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:visibility="gone"
+        />
+
+    <Button
+        android:id="@+id/btnListRec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnUpdateRec"
+        android:minWidth="160dp"
+        android:text="List Record"
+        android:layout_marginTop="10dp"
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        />
+
+
+</RelativeLayout>
