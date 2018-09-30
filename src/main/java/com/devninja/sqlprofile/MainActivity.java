@@ -63,20 +63,19 @@ public class MainActivity extends AppCompatActivity {
             String age = extras.getString("age");
             String phone = extras.getString("phone");
             byte[] byteImage = extras.getByteArray("image");
+            if (byteImage != null) {
+                Bitmap bitmap = BitmapFactory.decodeByteArray(byteImage, 0, byteImage.length);
 
-            Bitmap bitmap = BitmapFactory.decodeByteArray(byteImage, 0, byteImage.length);
+                editTexts.get(0).setText(name);
+                editTexts.get(1).setText(age);
+                editTexts.get(2).setText(phone);
+                imgProf.setImageBitmap(bitmap);
 
-            editTexts.get(0).setText(name);
-            editTexts.get(1).setText(age);
-            editTexts.get(2).setText(phone);
-            imgProf.setImageBitmap(bitmap);
-
-            buttons.get(0).setVisibility(View.GONE);
-            buttons.get(2).setVisibility(View.GONE);
-            buttons.get(1).setVisibility(View.VISIBLE);
-
+                buttons.get(0).setVisibility(View.GONE);
+                buttons.get(2).setVisibility(View.GONE);
+                buttons.get(1).setVisibility(View.VISIBLE);
+            }
         }
-
     }
 
     @OnClick({R.id.btnAddRec, R.id.btnUpdateRec, R.id.btnListRec})
@@ -115,13 +114,13 @@ public class MainActivity extends AppCompatActivity {
             );
             if (row > 0) {
                 Toast.makeText(getApplicationContext(), "Data updated successfully !", Toast.LENGTH_LONG).show();
-                Log.w(TAG, "Data update successfull !");
+                Log.w(TAG, "Data update successful !");
                 Intent intentList = new Intent(this, RecordListActivity.class);
                 intentList.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intentList);
             }else{
-                Toast.makeText(getApplicationContext(), "Data update unsuccessfull !", Toast.LENGTH_LONG).show();
-                Log.w(TAG, "Data update unsuccessfull !");
+                Toast.makeText(getApplicationContext(), "Data update unsuccessful !", Toast.LENGTH_LONG).show();
+                Log.w(TAG, "Data update unsuccessful !");
             }
         } catch (Exception e) {
             Log.w(TAG, e);
@@ -131,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
     private void imageCrop() {
         Log.w(TAG, "Image Crop Button Clicked !");
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             ActivityCompat.requestPermissions(
                     MainActivity.this,
                     new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
@@ -167,9 +166,8 @@ public class MainActivity extends AppCompatActivity {
         Bitmap bitmap = ((BitmapDrawable) imgProf.getDrawable()).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        byte[] byteArray = stream.toByteArray();
 
-        return byteArray;
+        return stream.toByteArray();
     }
 
     @Override

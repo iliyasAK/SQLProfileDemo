@@ -30,7 +30,10 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-//  TODO: Android Image Croppper
+//    TODO: Material search view
+    implementation 'com.miguelcatalan:materialsearchview:1.4.0'
+
+    //  TODO: Android Image Cropper
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.+'
 //  TODO: ButterKnife
     implementation 'com.jakewharton:butterknife:8.8.1'

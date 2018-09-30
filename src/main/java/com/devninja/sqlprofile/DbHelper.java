@@ -63,9 +63,8 @@ public class DbHelper extends SQLiteOpenHelper {
 
     public Cursor getData(){
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.query(DbEntries.TABLE_NAME, null, null, null, null, null, null);
 
-    return cursor;
+        return db.query(DbEntries.TABLE_NAME, null, null, null, null, null, null);
     }
 
     @Override
